@@ -1,19 +1,17 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-title: Com Tam To Go
-description: > # this means to ignore newlines until "baseurl:"
-  All things David.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-github_username: David-Wolgemuth
+title: Library Jekyll Theme
+email: your-email@domain.com
+description: >
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "/library-jekyll-theme"
+url: "http://alexcarpenter.me"
 
-# Build settings
-markdown: kramdown
-gems:
- - jekyll-gist
+# Collections
+#collections:
+#  books:
+#    output: false
+
+sass:
+  style: compressed
