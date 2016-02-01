@@ -1,12 +1,12 @@
 - title: Asteroid-Man
-  author: Created Using JavaScript and HTML5 Canvas
+  author: JavaScript and HTML5 Canvas
   image: asteroid-man.png
-  link:
+  link: http://david-wolgemuth.github.io/asteroid-man/
 
-- title: The Revenant
-  author: Michael Punke
-  image: therevenant.jpg
-  link:
+- title: Mahjong Solitare
+  author: Python and TKinter Canvas
+  image: mahjong.png
+  link: https://github.com/David-Wolgemuth/Mahjong
 
 - title: Wool
   author: Hugh Howey
