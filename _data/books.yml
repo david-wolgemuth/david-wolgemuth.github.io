@@ -8,22 +8,7 @@
   image: mahjong.png
   link: https://github.com/David-Wolgemuth/Mahjong
 
-- title: Wool
-  author: Hugh Howey
-  image: wool.jpg
-  link:
-
-- title: The Martian
-  author: Andy Weir
-  image: themartian.jpg
-  link:
-
-- title: The Man in the High Castle
-  author: Philip K Dick
-  image: themaninthehighcastle.jpg
-  link:
-
-- title: Deception Point
-  author: Dan Brown
-  image: deceptionpoint.jpg
-  link:
+- title: Musical Trivia
+  author: Swift iOS with Node server
+  image: musical-trivia.gif
+  link: https://github.com/David-Wolgemuth/MusicalTrivia
