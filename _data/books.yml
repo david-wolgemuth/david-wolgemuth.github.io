@@ -11,4 +11,8 @@
 - title: Musical Trivia
   author: Swift iOS with Node server
   image: musical-trivia.gif
-  link: https://github.com/David-Wolgemuth/MusicalTrivia
+
+ - title: Wrath of the Wrectangles
+  author: Python and Pygame
+  image: wotw.gif
+  link: https://github.com/David-Wolgemuth/Wrath-of-the-Wrectangles
