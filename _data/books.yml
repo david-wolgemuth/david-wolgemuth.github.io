@@ -1,11 +1,11 @@
 - title: Asteroid-Man
   author: JavaScript and HTML5 Canvas
-  image: asteroid-man.png
+  image: asteroid-man.gif
   link: http://david-wolgemuth.github.io/asteroid-man/
 
 - title: Mahjong Solitare
   author: Python and TKinter Canvas
-  image: mahjong.png
+  image: mahjong.gif
   link: https://github.com/David-Wolgemuth/Mahjong
 
 - title: Musical Trivia
