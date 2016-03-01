@@ -1,0 +1,78 @@
+
+html, body, .expand-height {
+	height: 100%;
+}
+
+body {
+	background-image: url("../images/ignasi_pattern_s.png");
+}
+#nav {
+	background-color: rgba(255, 255, 255, 0.4);
+	border-bottom: 2px solid;
+}
+#nav .icon-bar {
+	background-color: #d9230f;
+}
+hr.rust {
+	border-top: 1px solid #d9230f;	
+}
+#portfolio-container {
+	padding-top: 40px;
+	/*height: calc(100% - 80px)*/
+	/*height: -moz-calc(100% - 80px)*/
+	/*height: calc(100% - 80px)*/
+}
+#image-carousel {
+	min-height: 50%;
+	height: 70%;
+	background: gray;
+	overflow: hidden;
+}
+.small-description {
+	overflow: scroll;
+	background-color: #f4f4f4;
+}
+.small-description h1 {
+	font-size: 18px;
+}
+.small-description h4 {
+	font-size: 14px;
+}
+
+#carousel-wrapper {
+	height: 100%;
+}
+#left-column {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-top: 1px solid;
+	overflow: scroll;
+}
+#right-column {
+	overflow: hidden;
+	padding-left: 24px;
+}
+#gif-list li {
+	box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.1);
+}
+.item {
+	height: 100%;
+}
+.carousel-image {
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+}
+.carousel-caption {
+	background: rgba(100, 100, 100, 0.8);
+}
+.carousel-caption * {
+	color: white;
+}
+
+.bordered {
+	border: 1px dashed gray;
+}
+.ch-grid * {
+	background-size: contain;
+}
+
