@@ -48,7 +48,7 @@ hr.rust {
 	overflow: scroll;
 }
 #right-column {
-	overflow: hidden;
+	overflow: scroll;
 	padding-left: 24px;
 }
 #gif-list li {
