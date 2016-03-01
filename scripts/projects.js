@@ -3,7 +3,7 @@ var Projects = [
         title: "Social ME",
         description: "A messenger app where users can add friends, start group chats, and send photo messages - all in real-time",
         blip: "MEAN Stack + Sockets",
-        about: "Using a combination of sockets and ajax, the user never needs to leave the page.  The site is responsive to the browser size to give the optimal experience.  Behind the scenes is a RESTful API communicating with a NoSQL Database.",
+        about: "Using a combination of sockets and ajax, the user never needs to leave the page.  <a href='http://52.36.153.231'>The site</a> is responsive to the browser size to give the optimal experience.  Behind the scenes is a RESTful API communicating with a NoSQL Database.",
         technologies: [
             "Angular", "Node.js", "Express.js", "MongoDB", "BootStrap", "iOS", "Socket.io"
         ],
