@@ -20,11 +20,12 @@ body {
 hr.rust {
 	border-top: 1px solid #d9230f;	
 }
+#about-container {
+	padding-top: 40px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
 #portfolio-container {
 	padding-top: 40px;
-	/*height: calc(100% - 80px)*/
-	/*height: -moz-calc(100% - 80px)*/
-	/*height: calc(100% - 80px)*/
 }
 #skills-container {
 	padding-top: 50px;
