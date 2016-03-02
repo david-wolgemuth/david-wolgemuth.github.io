@@ -7,14 +7,15 @@ body {
 	background-image: url("../images/ignasi_pattern_s.png");
 }
 #nav {
-	background-color: rgba(255, 255, 255, 0.4);
+	background-image: url("../images/ignasi_pattern_s.png");
+	/*background-color: rgba(255, 255, 255, 0.4);*/
 	border-bottom: 2px solid;
 }
 #nav .icon-bar {
 	background-color: #d9230f;
 }
 #nav li a {
-	background-color: rgba(255, 255, 255, 0.7);
+	/*background-color: rgba(255, 255, 255, 0.7);*/
 }
 hr.rust {
 	border-top: 1px solid #d9230f;	
@@ -24,6 +25,11 @@ hr.rust {
 	/*height: calc(100% - 80px)*/
 	/*height: -moz-calc(100% - 80px)*/
 	/*height: calc(100% - 80px)*/
+}
+#skills-container {
+	padding-top: 50px;
+	background-color: rgba(0, 0, 0, 0.4);
+	overflow-y: scroll;
 }
 #image-carousel {
 	min-height: 50%;
@@ -41,6 +47,9 @@ hr.rust {
 .small-description h4 {
 	font-size: 14px;
 }
+.light-text {
+	color: rgb(200, 200, 200);
+}
 
 #carousel-wrapper {
 	height: 100%;
@@ -48,11 +57,19 @@ hr.rust {
 #left-column {
 	background-color: rgba(0, 0, 0, 0.5);
 	border-top: 1px solid;
-	overflow: scroll;
+	border-bottom: 1px solid;
+	overflow-y: scroll;
+}
+.well {
+	background-color: rgba(0, 0, 0, 0.1);
 }
 #right-column {
-	overflow: scroll;
+	/*overflow: scroll;*/
 	padding-left: 24px;
+}
+#tech-image {
+	margin-top: 50px;
+	/*opacity: 0.8;*/
 }
 #gif-list li {
 	box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.1);
@@ -78,4 +95,18 @@ hr.rust {
 .ch-grid * {
 	background-size: contain;
 }
+.unselectable {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 
+.centered-text {
+	text-align: center;
+}
+.centered-text * {
+	margin: auto;
+}

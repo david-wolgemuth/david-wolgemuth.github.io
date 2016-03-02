@@ -48,6 +48,37 @@ $(document).ready(function () {
         $("#gif-list li div.ch-item").removeClass("selected");
         $("#gif-list li:nth-child(" + n + ") div.ch-item").addClass("selected"); 
     }
+    $(".ch-item").on("click", function () {
+        console.log(this);
+        $("html, body").animate({
+            scrollTop: $(document).height()
+        }, "slow");
+    });
+    $("#a-nav").on("click", function () {
+        console.log("a-nav");
+        $("#about-container").show();
+        $("#skills-container").hide(); $("#portfolio-container").hide();
+    });
+    $("#s-nav").on("click", function () {
+        console.log("s-nav");
+        $("#skills-container").show();
+        $("#about-container").hide(); $("#portfolio-container").hide();
+        $("#tech-image").elevateZoom({
+            // zoomType: "inner",
+            zoomWindowPosition: "zoom-destination",
+            // zoomWindowWidth: $("#tech-image").width(),
+            cursor: "crosshair",
+            zoomWindowFadeIn: 500,
+            zoomWindowFadeOut: 750
+       }); 
+        console.log($("#tech-image").width());
+    });
+    $("#p-nav").on("click", function () {
+        console.log("p-nav");
+        $("#portfolio-container").show();
+        $("#skills-container").hide(); $("#about-container").hide();
+    });
+    $("#skills-container").hide(); $("#about-container").hide();
     $("#image-carousel").on("slid.bs.carousel", function () {
         var index = $(this).find(".active").index();
         selectProject(index);
@@ -59,6 +90,7 @@ $(document).ready(function () {
     $('.carousel-control.right').click(function() {
         $('#image-carousel').carousel('next');
     });
+  
 
     selectProject(0);
 });

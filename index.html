@@ -20,23 +20,76 @@
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-list">
 		<ul class="nav nav-tabs ">
-			<li role="presentation"><a href="#">Portfolio</a></li>
-			<li role="presentation"><a href="#">Skills</a></li>
-			<li role="presentation"><a href="#">About</a></li>
+			<li role="presentation"><a href="#" id="p-nav" data-toggle="collapse" data-target="#navbar-list">Portfolio</a></li>
+			<li role="presentation"><a href="#" id="s-nav" data-toggle="collapse" data-target="#navbar-list">Skills</a></li>
+			<li role="presentation"><a href="#" id="a-nav" data-toggle="collapse" data-target="#navbar-list">About</a></li>
 		</ul>
 	</div>
 </nav>
+
+
 <div id="about-container">
-	
+	<h1>About</h1>	
 </div>
-<div id="technologies-container">
-	
+
+
+<div id="skills-container" class="container-fluid expand-height">
+	<div class="well hidden-sm hidden-xs">
+		<div class="row expand-height unselectable col-lg-8 col-md-8">
+			<img src="images/small/technologies.png" class="unselectable img-responsive" data-zoom-image="images/large/technologies.png" width="758" height="609" alt="Technologies" id="tech-image" />
+		</div>
+		<div class="col-lg-4 col-md-4">
+			<div id="zoom-destination"></div>
+		</div>
+	</div>
+	<div id="skills-html" class="well visible-sm visible-xs" style="color: white;">
+		<h1><span class="label label-default">Technologies</span></h1>
+		<h3><span class="label">Web FrameWorks</span></h3>
+		<ul class="list-unstyled">
+			<li>Node.js (Express.js / Socket.io)</li>
+			<li>Codeigniter</li>
+			<li>Flask</li>
+		</ul>
+		<hr class="rust">
+		<h3><span class="label">FrontEnd Web</span></h3>
+		<ul class="list-unstyled">
+			<li>Angular</li>
+			<li>jQuery</li>
+			<li>HTML 5 Canvas</li>
+			<li>Twitter Bootstrap</li>
+		</ul>
+		<hr class="rust">
+		<h3><span class="label">GUI</span></h3>
+		<ul class="list-unstyled">
+			<li>iOS / Xcode</li>
+			<li>tKinter</li>
+			<li>Pygame</li>
+		</ul>
+		<hr class="rust">
+		<h3><span class="label">Data</span></h3>
+		<ul class="list-unstyled">
+			<li>MySQL</li>
+			<li>MongoDB (NoSQL)</li>
+			<li>iOS CoreData</li>
+		</ul>
+		<hr class="rust">
+		<h3><span class="label">Languages</span></h3>
+		<ul class="list-unstyled">
+			<li>JavaScript</li>
+			<li>Python</li>
+			<li>Swift</li>
+			<li>PHP</li>
+			<li>C++</li>
+		</ul>
+	</div>
 </div>
+
+
 <div id="portfolio-container" class="container-fluid expand-height">
 	<div class="row expand-height">	
-		<div id="left-column" role="navigation" class="visible-lg col-lg-4 expand-height">
+		<div id="left-column" role="navigation" class="col-lg-4 expand-height">
 			<div class="well">
-				<h1>Portfolio Pieces</h1>
+				<h1 class="light-text">Portfolio</h1>
 				<hr class="rust">
 			</div>
 			<ul id="gif-list" class="nav ch-grid">
@@ -60,7 +113,7 @@
 				<div class="well hidden-xs hidden-sm">
 					<h1></h1> <!-- Title -->
 					<h4></h4> <!-- Technologies Used -->
-					<hr>
+					<hr class="rust">
 					<p></p> <!-- About -->
 					<h6></h6> <!-- Repository -->
 				</div>
@@ -78,6 +131,7 @@
 
 </body>
 	<script src="scripts/jquery.js"></script>
+	<script src="scripts/jquery.elevatezoom.js"></script>
 	<script src="scripts/bootstrap.js"></script>
 	<script src="scripts/projects.js"></script>
 	<script src="scripts/main.js"></script>
