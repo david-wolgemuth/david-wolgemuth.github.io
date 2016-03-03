@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#a-nav").on("click", function () {
+    $("#a-nav, #dw-nav").on("click", function () {
         $(".zoomContainer").remove();
         $("#main-container").load("views/about.html");
     });
