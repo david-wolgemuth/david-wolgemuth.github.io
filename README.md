@@ -1,2 +1,2 @@
 # Portfolio
-View my work [here](david-wolgemuth.github.io).
+View my work [here](http://david-wolgemuth.github.io).
