@@ -1,113 +1,18 @@
 
-html, body, .expand-height {
-	height: 100%;
+#main-container {
+	margin-top: 40px;
 }
-
-body {
-	background-image: url("../images/ignasi_pattern_s.png");
+hr.blue {
+	border-top: 1px solid rgb(73, 123, 159);
 }
-#nav {
-	background-image: url("../images/ignasi_pattern_s.png");
-	/*background-color: rgba(255, 255, 255, 0.4);*/
-	border-bottom: 2px solid;
+.project {
+	margin: 24px 0;
 }
-#nav .icon-bar {
-	background-color: #d9230f;
+a,
+.navbar .navbar-brand:hover, 
+.navbar .navbar-brand:focus {
+	color: rgb(73, 123, 159);
 }
-#nav li a {
-	/*background-color: rgba(255, 255, 255, 0.7);*/
-}
-hr.rust {
-	border-top: 1px solid #d9230f;	
-}
-#about-container {
-	padding-top: 40px;
-	background-color: rgba(0, 0, 0, 0.4);
-}
-#portfolio-container {
-	padding-top: 40px;
-}
-#skills-container {
-	padding-top: 50px;
-	background-color: rgba(0, 0, 0, 0.4);
-	overflow-y: scroll;
-}
-#image-carousel {
-	min-height: 50%;
-	height: 70%;
-	background: gray;
-	overflow: hidden;
-}
-.small-description {
-	overflow: scroll;
-	background-color: #f4f4f4;
-}
-.small-description h1 {
-	font-size: 18px;
-}
-.small-description h4 {
-	font-size: 14px;
-}
-.light-text {
-	color: rgb(200, 200, 200);
-}
-
-#carousel-wrapper {
-	height: 100%;
-}
-#left-column {
-	background-color: rgba(0, 0, 0, 0.5);
-	border-top: 1px solid;
-	border-bottom: 1px solid;
-	overflow-y: scroll;
-}
-.well {
-	background-color: rgba(0, 0, 0, 0.1);
-}
-#right-column {
-	/*overflow: scroll;*/
-	padding-left: 24px;
-}
-#tech-image {
-	margin-top: 50px;
-	/*opacity: 0.8;*/
-}
-#gif-list li {
-	box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.1);
-}
-.item {
-	height: 100%;
-}
-.carousel-image {
-	height: 100%;
-	background-size: cover;
-	background-position: center;
-}
-.carousel-caption {
-	background: rgba(100, 100, 100, 0.8);
-}
-.carousel-caption * {
-	color: white;
-}
-
-.bordered {
-	border: 1px dashed gray;
-}
-.ch-grid * {
-	background-size: contain;
-}
-.unselectable {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.centered-text {
-	text-align: center;
-}
-.centered-text * {
-	margin: auto;
+a:hover {
+	color: #999999;
 }
