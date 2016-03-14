@@ -69,16 +69,20 @@ var PROJECTS = [
 
 
 $(document).ready(function () {
-    PROJECTS.forEach(function (project) {
+    for (var i = 0; i < PROJECTS.length; i++) {
+        var project = PROJECTS[i];
         var html =  "<div class=\"project row\">" + 
                         "<img class=\"img-responsive col-md-6 col-lg-6\" alt=\"" + project.title + "\" src=\"images/" + project.image + ".png\">" +
                         "<div class=\"col-md-6 col-lg-6\">" + 
-                            "<h1>" + project.title + " <small>" + project.blip + "</small></h1>" +
+                            "<h3>" + project.title + " <small>" + project.blip + "</small></h3>" +
                             "<p>" + project.about + "</p>" +
                             "<a href=\"" + project.repository + "\">GitHub Respository</a>" +
                         "</div>" +
-                    "</div><hr class=\"blue\">";
+                    "</div>";
+        if (i != PROJECTS.length - 1) {
+            html += "<hr class=\"blue\">";
+        }
         $("#projects").append(html);
-    });
+    }
 
 });
