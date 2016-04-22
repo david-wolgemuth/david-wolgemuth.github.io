@@ -1,4 +1,14 @@
 
+var previewModal = document.getElementById("preview-modal");
+var previewModalImage = document.getElementById("preview-modal-image");
+
+window.onclick = function (event)
+{
+    if (event.target == previewModal) {
+        previewModal.style.visibility = "hidden";
+    }
+};
+
 (function addProjectsToParent()
 {
     var projects = document.getElementById("projects");
@@ -31,19 +41,37 @@ function createProjectElement(project)
     }, {
         tag: "p",
         html: project.about
-    }, { tag: "br" }, {
+    }]);
+
+    var links = constructElement({ tag: "div", class: "links" });
+    links.appendChild(constructElement({
         tag: "a",
         href: project.repository,
         html: "Check Out the Code"
-    }, { tag: "br" }]);
+    }));
     if (project.site) {
-        text.appendChild(constructElement({
+        links.appendChild(constructElement({
             tag: "a",
             href: project.site,
             html: "Visit the LIVE</strong> Site!"
         }));
     }
+
+    var preview = constructElement({
+        tag: "button",
+        html: "See It In Action",
+        class: "btn btn-blue btn-block"
+    });
+    preview.onclick = function ()
+    {
+        previewModalImage.src = "images/gifs/" + project.image + ".gif";
+        previewModal.style.visibility = "visible";
+    };
+    links.appendChild(preview);
+    text.appendChild(links);
+
     div.appendChild(text);
+
     return div;
 }
 
