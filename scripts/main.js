@@ -1,88 +1,71 @@
-var PROJECTS = [
-    {
-        title: "Social ME",
-        description: "A messenger app where users can add friends, start group chats, and send photo messages - all in real-time",
-        blip: "MEAN Stack + Sockets",
-        about: "Using a combination of sockets and ajax, the user never needs to leave the page.  <a href='http://52.36.153.231'>The site</a> is responsive to the browser size to give the optimal experience.  Behind the scenes is a RESTful API communicating with a NoSQL Database.",
-        technologies: [
-            "Angular", "Node.js", "Express.js", "MongoDB", "BootStrap", "iOS", "Socket.io"
-        ],
-        repository: "https://github.com/David-Wolgemuth/social-me",
-        image: "social-me"
-    },
-    {
-        title: "Asteroid Man",
-        description: "One-button FallDown-inspired game, optimized for mobile browsers",
-        blip: "HTML 5 Canvas + JavaScript",
-        about: "Using the HTML 5 canvas and plain JavaScript, it can be easily enjoyed on mobile. No downloads / installation required.  <a href='http://david-wolgemuth.github.io/asteroid-man/'>Play it here</a> and be sure to turn on your audio.",
-        technologies: [
-            "HTML 5 Canvas", "JavaScript", "jQuery", "Sprite-Sheets", "WebAudioAPI"
-        ],
-        repository: "https://github.com/David-Wolgemuth/asteroid-man",
-        image: "asteroid-man"
-    },
-    {
-        title: "Musical Trivia",
-        description: "iOS Multiplayer Trivia Game testing your understanding of music theory",
-        blip: "iOS + Node.js / Sockets",
-        about: "Play \"Zen\" mode, against the clock, or against your friends to test your knowledge of modal key-signatures, triads, and ability to distinguish intervals played by synthesizer.",
-        technologies: [
-            "Swift", "iOS", "AudioKit", "Node", "Socket.io"
-        ],
-        repository: "https://github.com/David-Wolgemuth/MusicalTrivia",
-        image: "musical-trivia"
-    },
-    {
-        title: "Mahjong Solitaire",
-        description: "The classic game of mahjong",
-        blip: "tKinter Canvas + Python",
-        about: "I had so much fun with this project and consider it the nail in the coffin of my deciding to pursue a career in software.  The biggest challenges were producing the 3d stack illusion and registering mouse-clicks on the correct tiles.",
-        technologies: [
-            "Python", "tKinter canvas"
-        ],
-        repository: "https://github.com/David-Wolgemuth/Mahjong",
-        image: "mahjong"
-    },
-    {
-        title: "W.O.T.W.",
-        description: "OSX Platformer, don't let the rectangles hit you!",
-        blip: "Python + Pygame",
-        about: "10 levels of madness and various AI bad-guys who fly, jump and shoot at you.  Keeps track of high scores and unlocked levels.",
-        technologies: [
-            "Python", "Pygame"
-        ],
-        repository: "https://github.com/David-Wolgemuth/Wrath-of-the-Wrectangles",
-        image: "wotw",
-    },
-    {
-        title: "Wake Racer Records",
-        description: "Website for atheletes to create and compare times as they train",
-        blip: "PHP Codeignitor + MySQL",
-        about: "jQuery and ajax enable the user to seamlessly browse and filter records in the database.  90% of this project was worked on while my partner and I were on opposite sides of the country and had to rely on github and video-conferencing.",
-        technologies: [
-            "PHP", "Apache", "Codeignitor", "MySQL", "jQuery", "BootStrap"
-        ],
-        repository: "https://github.com/David-Wolgemuth/wake-racer",
-        image: "wake-racer"
-    }
-];
 
-
-$(document).ready(function () {
+(function addProjectsToParent()
+{
+    var projects = document.getElementById("projects");
     for (var i = 0; i < PROJECTS.length; i++) {
-        var project = PROJECTS[i];
-        var html =  "<div class=\"project row\">" + 
-                        "<img class=\"img-responsive col-md-6 col-lg-6\" alt=\"" + project.title + "\" src=\"images/" + project.image + ".png\">" +
-                        "<div class=\"col-md-6 col-lg-6\">" + 
-                            "<h3>" + project.title + " <small>" + project.blip + "</small></h3>" +
-                            "<p>" + project.about + "</p>" +
-                            "<a href=\"" + project.repository + "\">GitHub Respository</a>" +
-                        "</div>" +
-                    "</div>";
+        var div = createProjectElement(PROJECTS[i]);
+        projects.appendChild(div);
         if (i != PROJECTS.length - 1) {
-            html += "<hr class=\"blue\">";
+            var hr = constructElement({ tag: "hr", class: "blue" });
+            projects.appendChild(hr);
         }
-        $("#projects").append(html);
     }
+}) ();
 
-});
+function createProjectElement(project)
+{
+    var div = constructElement({ tag: "div", class: "project row" });
+    div.appendChild(constructElement({ 
+        tag: "img", 
+        class: "img-responsive col-md-6 col-lg-6" ,
+        alt: project.title,
+        src: "images/projects/" + project.image + ".png"
+    }));
+    var text = constructElement({ tag: "div", class: "col-md-6 col-lg-6" });
+    appendChildren(text, [{ 
+        tag: "h3", 
+        html: project.title + " <small> " + project.blip + "</small>" 
+    }, {
+        tag: "p",
+        html: project.description
+    }, {
+        tag: "p",
+        html: project.about
+    }, { tag: "br" }, {
+        tag: "a",
+        href: project.repository,
+        html: "Check Out the Code"
+    }, { tag: "br" }]);
+    if (project.site) {
+        text.appendChild(constructElement({
+            tag: "a",
+            href: "project.site",
+            html: "Visit the LIVE</strong> Site!"
+        }));
+    }
+    div.appendChild(text);
+    return div;
+}
+
+function appendChildren(parent, children)
+{
+    children.forEach(function (child) {
+        parent.appendChild(constructElement(child));
+    });
+}
+
+function constructElement(args)
+{
+    if (!args.tag) {
+        return;
+    }
+    var element = document.createElement(args.tag);
+    element.innerHTML = args.html || "";
+    element.className = args.class || "";
+    element.src = args.src;
+    element.alt = args.alt;
+    element.img = args.img;
+    element.href = args.href;
+    return element;
+}
+

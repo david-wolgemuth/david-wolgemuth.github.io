@@ -1,16 +1,25 @@
 
-#main-container {
-	margin-top: 40px;
+#content {
+	/*margin-top: 44px;*/
 }
 hr.blue {
 	border-top: 1px solid rgb(73, 123, 159);
 }
+.jumbotron {
+	background-color: inherit;
+}
+.jumbotron h1 {
+	color: black;
+}
+
 .project {
 	margin: 24px 0;
 }
 a,
+.navbar .navbar-brand:active,
+.navbar .navbar-brand:link,
 .navbar .navbar-brand:hover, 
-.navbar .navbar-brand:focus {
+.navbar-default .navbar-brand {
 	color: rgb(73, 123, 159);
 }
 a:hover {
