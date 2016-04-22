@@ -39,7 +39,7 @@ function createProjectElement(project)
     if (project.site) {
         text.appendChild(constructElement({
             tag: "a",
-            href: "project.site",
+            href: project.site,
             html: "Visit the LIVE</strong> Site!"
         }));
     }
