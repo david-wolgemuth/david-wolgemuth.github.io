@@ -1,10 +1,11 @@
 
 var previewModal = document.getElementById("preview-modal");
-var previewModalImage = document.getElementById("preview-modal-image");
+var previewModalContent = document.getElementById("preview-modal-content");
 
 window.onclick = function (event)
 {
     if (event.target == previewModal) {
+        previewModalContent.innerHTML = "";
         previewModal.style.visibility = "hidden";
     }
 };
@@ -64,8 +65,14 @@ function createProjectElement(project)
     });
     preview.onclick = function ()
     {
-        previewModalImage.src = "images/gifs/" + project.image + ".gif";
+        var img = constructElement({
+            tag: "img",
+            src: "images/gifs/" + project.image + ".gif",
+            alt: project.title,
+            class: "img img-responsive"
+        });
         previewModal.style.visibility = "visible";
+        previewModalContent.appendChild(img);
     };
     links.appendChild(preview);
     text.appendChild(links);
