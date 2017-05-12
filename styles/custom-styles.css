@@ -15,6 +15,9 @@ hr.blue {
 	color: #fcfcfc;
 	background-color: rgb(73, 123, 159);
 }
+#about-me .centered {
+	margin: 0 auto;
+}
 .project {
 	margin: 24px 0;
 }
