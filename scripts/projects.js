@@ -8,7 +8,7 @@ var PROJECTS = [
         technologies: [
             "Angular", "Node.js", "Express.js", "MongoDB", "BootStrap", "iOS", "Socket.io"
         ],
-        site: "http://52.36.153.231",
+        // site: "http://52.36.153.231",
         repository: "https://github.com/David-Wolgemuth/social-me",
         image: "social-me"
     },
