@@ -1,0 +1,22 @@
+.gist-picker {
+  .gist-picker-button {
+    padding: 6px 12px;
+    background: none;
+    border: none;
+    &.active {
+      border-bottom: 2px solid $brand-color;
+    }
+  }
+  .gist-picker-element {
+
+  }
+}
+
+*:focus {
+  border-bottom: 2px solid $brand-color !important;
+  outline: none;
+}
+
+pre.highlight, code, .highlighter-rouge .highlight {
+  background: #F7F7F5;
+}
