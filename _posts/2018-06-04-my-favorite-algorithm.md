@@ -57,4 +57,4 @@ While we still have unchecked elements
 
 The 2 single element arrays are now sorted into 1 sorted array.  As the function continues to run, the single element arrays will combine into larger and larger arrays until the initial halves have been recombined into a sorted array.
 
-There are many visualization tools online, but I am fond of [hackerearth's merge-sort](https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/visualize/).
+For further resources, Google it!  There are many visualization tools online, but I am fond of [hackerearth's merge-sort](https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/visualize/).  Try to re-write merge-sort in your language of choice!  It's a rewarding experience.
