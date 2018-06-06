@@ -13,3 +13,5 @@ layout: home
     <img src="/assets/images/linkedin.png" alt="LinkedIn" height="24" width="24">
   </a>
 </div>
+
+<br>

@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  Artists You May Like
-date:   2018-06-05
+date:   2018-06-02
 categories: sql data_structures algorithms rails
 ---
 
-How does a company like Spotify provide artists similar to those you like? (Because you like "Hans Zimmer", you may also like "Harry Gregson-Williams")
+Because you like "Hans Zimmer", you may also like "Harry Gregson-Williams."  How did you know that Spotify??
 
 Below I have outlined the first approach that comes to mind:
 

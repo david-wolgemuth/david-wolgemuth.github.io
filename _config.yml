@@ -1,13 +1,14 @@
 title: David Wolgemuth
 email: davidjwolgemuth@gmail.com
 description: >-
-  Discussion of all things relating to code.  I'm a big fan of Ruby,
+  Full Stack Developer talking all things relating to code.  I'm a big fan of Ruby,
   JavaScript, and Swift.  Also a fan of algorithms.
 baseurl: ""
 url: "david-wolgemuth.github.io"
 github_username:  david-wolgemuth
 markdown: kramdown
 theme: minima
+show_excerpts: true
 plugins:
   - jekyll-feed
 

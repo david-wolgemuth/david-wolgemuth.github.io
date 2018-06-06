@@ -3,7 +3,9 @@ layout: post
 title:  Stubbing out your test suite
 date:   2018-06-06
 categories: tdd rails oop
+excerpt: Write tests with maximum coverage, feel confident when they pass, and not wait 10 minutes every time they run!  Woohoo!
 ---
+
 
 ### My Story With Testing Stripe
 
