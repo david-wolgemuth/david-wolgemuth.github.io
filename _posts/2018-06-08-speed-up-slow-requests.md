@@ -3,7 +3,6 @@ layout: post
 title:  Speed Up Slow Requests
 date:   2018-06-08
 tags: rails performance
-comments: true
 ---
 
 What to do when your server responses are slowing down?
