@@ -2,7 +2,7 @@
 layout: post
 title:  My Favorite Algorithm
 date:   2018-05-29
-categories: ruby javascript algorithms
+tags: ruby javascript algorithms
 ---
 Merge Sort.  It has a few fun challenges that make for a wonderful and elegant sorting algorithm. And O(nlogn) time!  Goosebumps.
 

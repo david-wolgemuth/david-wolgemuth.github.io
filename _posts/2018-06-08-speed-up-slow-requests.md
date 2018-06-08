@@ -2,7 +2,7 @@
 layout: post
 title:  Speed Up Slow Requests
 date:   2018-06-08
-categories: rails performance
+tags: rails performance
 comments: true
 ---
 

@@ -19,6 +19,14 @@ layout: default
     {{ content }}
   </div>
 
+  <ul id="tag_list">
+    {%- for tag in page.tags -%}
+      <li>
+        <a href="#">{{ tag }}</a>
+      </li>
+    {%- endfor -%}
+  </ul>
+
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
   {%- endif -%}

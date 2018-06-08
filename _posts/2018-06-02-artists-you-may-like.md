@@ -2,7 +2,7 @@
 layout: post
 title:  Artists You May Like
 date:   2018-06-02
-categories: sql data_structures algorithms rails
+tags: sql data_structures algorithms rails
 ---
 
 Because you like "Hans Zimmer", you may also like "Harry Gregson-Williams."  How did you know that Spotify??

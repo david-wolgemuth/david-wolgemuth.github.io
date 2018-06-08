@@ -2,7 +2,7 @@
 layout: post
 title:  Past Projects
 date:   2018-05-24
-categories: projects
+tags: projects
 excerpt:  A few old projects I will remain proud of until I die.
 ---
 
