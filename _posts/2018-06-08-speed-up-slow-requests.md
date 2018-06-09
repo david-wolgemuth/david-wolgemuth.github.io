@@ -13,7 +13,7 @@ Whenever we are discussing performance issues, it's important to find the bottle
 
 You may have heard the phrase "premature optimization is the root of all evil."  While this is an obvious overstatement, trying to speed up your server will 99% of the time make things more complicated.  Keep performance in mind while coding, but don't take any drastic measures to improve performance unless it is becoming a problem.
 
-The 2 most common culprits for slowed responses:
+The 3 most common culprits for slowed responses:
 
 1. Requests to external services (Mailers, Stripe, PayPal, Google Search, Google Maps, Facebook, OAuth...)
 1. Requests to Databases
