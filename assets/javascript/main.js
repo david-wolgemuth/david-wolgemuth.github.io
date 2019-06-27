@@ -46,4 +46,23 @@
     });
   }
 
+  //----------- HIDE DATES FOR OLD POSTS ------------//
+
+  const HIDE_POSTS_CUTOFF_S = 6 * 86400000;  // days
+
+  $(document).ready(() => {
+    $('.dt-published').each(function () {
+      const $this = $(this);
+
+      const today = new Date();
+      const date = new Date($this.attr('datetime'));
+
+      console.log(today.getTime() - date.getTime(), HIDE_POSTS_CUTOFF_S, $this.attr('datetime'));
+
+      if (today.getTime() - date.getTime() < HIDE_POSTS_CUTOFF_S) {
+        $this.show();
+      }
+    });
+  });
+
 })(window, $);

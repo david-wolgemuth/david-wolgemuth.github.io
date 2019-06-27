@@ -9,15 +9,17 @@ layout: default
   {{ content }}
 
   <ul class="post-list">
+    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
     {%- for post in site.posts -%}
-    <li>
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      <span class="post-meta">{{ post.date | date: date_format }}</span>
-      <h3>
+    <li style="padding-bottom: 24px; border-bottom: 1px solid #ddd;">
+      <h2 style="margin: 0; padding: 0;">
         <a class="post-link" href="{{ post.url | relative_url }}">
           {{ post.title | escape }}
         </a>
-      </h3>
+      </h2>
+      <time style="display: none; color: #ccc;  padding-bottom: 24px; font-size: 12px;" class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+        ({{ post.date | date: date_format }})
+      </time>
       {%- if site.show_excerpts -%}
         {{ post.excerpt }}
       {%- endif -%}
