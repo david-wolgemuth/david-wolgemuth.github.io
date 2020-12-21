@@ -28,6 +28,7 @@
 ### Think Big Picture
 
 - Don't get attached to your software
+- Wait until the 3rd time you repeat yourself to abstract.
 - Talk with your teammates
 - Be "present" during standup.  (this might mean you need to come prepared to standup)
 
@@ -38,7 +39,7 @@
 - This helps you measure your progress
 - Again, don't get attached to a project, don't get attached to your code.
 
-### Automate Early
+### Automate
 
 - Don't waste time and energy
 - It's always easier to start with a linter, than to add one after the fact.
