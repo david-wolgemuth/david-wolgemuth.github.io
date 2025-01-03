@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  The Quill and the Machine: Blogging in the age of AI
+title: "The Quill and the Machine: Blogging in the age of AI"
 date: 2025-01-03
 tags: ai blogging reflection future content-creation llm
 ---
