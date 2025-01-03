@@ -5,8 +5,6 @@ date: 2025-01-03
 tags: ai blogging reflection future content-creation llm
 ---
 
-# The Quill and the Machine: Blogging in the age of AI
-
 Blogging, whether traditional or AI-assisted, offers a dynamic space for creativity, self-expression, and connection. This post delves into the trade-offs of both approaches, examining how they can enrich the storytelling process while posing unique challenges. With quill in one hand and machine in the other, we explore the balance between the timeless art of writing and the cutting-edge promise of AI.
 
 _"The Chronicler stands at the crossroads of tradition and innovation, poised to chart a path through the rich terrain of storytelling. Their journey is a quest to master the tools of their age—whether the familiar quill or the enigmatic machine—each offering a unique lens through which to illuminate the world."_
