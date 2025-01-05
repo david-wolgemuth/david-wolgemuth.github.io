@@ -5,13 +5,10 @@ description: >-
   JavaScript, and Swift.  Also a fan of algorithms.
 baseurl: ""
 url: "https://david-wolgemuth.github.io"
-github_username:  david-wolgemuth
+github_username: david-wolgemuth
 markdown: kramdown
 theme: minima
 show_excerpts: true
 plugins:
   - jekyll-feed
-disqus:
-  shortname: david-wolgemuth
-plugins:
   - jekyll-sitemap

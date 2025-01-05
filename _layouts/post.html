@@ -27,10 +27,5 @@ layout: default
     {%- endfor -%}
   </ul>
 
-  {%- if site.disqus.shortname -%}
-    <br>
-    {%- include disqus_comments.html -%}
-  {%- endif -%}
-
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
