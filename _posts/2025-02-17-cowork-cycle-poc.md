@@ -5,8 +5,6 @@ date: 2025-02-17
 tags: raspberry-pi cowork-frederick javascript
 ---
 
-## Introduction
-
 This is a proof of concept for a "bulletin board" that cycles through different tabs on the Cowork Frederick website.
 
 The bulletin board:
