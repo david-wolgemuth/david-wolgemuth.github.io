@@ -9,14 +9,23 @@ This is a proof of concept for a "bulletin board" that cycles through different 
 
 The bulletin board:
 
-<code id="current-url"></code>
+<code id="current-url">https://coworkfrederick.com/meet-the-members-of-cowork-frederick/</code>
+
 <iframe
     id="bulletin-board"
-    src=""
-    width="100%"
+    src="https://coworkfrederick.com/meet-the-members-of-cowork-frederick/"
     height="800px"
     frameborder="1"
-    style="border: 1px solid #ccc; background-color: pink;"
+    style="
+        border: 1px solid #ccc;
+        background-color: pink;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    "
 ></iframe>
 
 <script>
