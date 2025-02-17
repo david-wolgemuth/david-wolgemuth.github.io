@@ -54,6 +54,48 @@ The bulletin board:
 
 It uses an iframe to display the content, and JavaScript to cycle through the tabs.
 
+```html
+<iframe
+    id="bulletin-board"
+    src=""
+    width="100%"
+    height="800px"
+    frameborder="1"
+    style="border: 1px solid #ccc; background-color: pink;"
+></iframe>
+
+<script>
+    const TABS_TO_CYCLE = [
+        {
+            name: "Upcoming Events",
+            url: "https://coworkfrederick.com/upcoming-events/"
+        },
+        {
+            name: "All Members",
+            url: "https://coworkfrederick.com/meet-the-members-of-cowork-frederick/",
+        },
+    ];
+
+
+    // scrape list of members from the members page
+    // $.get(
+    // NOTE - due to CORS, would need to do this "server-side"
+    // (could use a github action, or a function on the raspberry pi)
+
+    const iframe = document.getElementById('bulletin-board');
+    const currentUrl = document.getElementById('current-url');
+
+    const MS_PER_TAB = 3 * 1000;
+    let currentTab = 0;
+
+    setInterval(() => {
+        currentTab = (currentTab + 1) % TABS_TO_CYCLE.length
+        iframe.src = TABS_TO_CYCLE[currentTab].url;
+        currentUrl.innerText = TABS_TO_CYCLE[currentTab].url;
+    }, MS_PER_TAB);
+</script>
+```
+
 ## How the bulletin board will run
 
 The bulletin board will run on a Raspberry Pi, which will be connected to a monitor in the Cowork Frederick space.
