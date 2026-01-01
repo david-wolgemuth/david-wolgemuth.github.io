@@ -135,7 +135,7 @@ The infrastructure keeps me in the loop without requiring a laptop:
 
 ## Outcome
 
-Over Christmas break, mostly from my phone:
+Over Christmas break, entirely from my phone:
 - Built CI/CD preview system
 - Added URL state serialization
 - Created 14+ test fixtures with auto-generated QA links
