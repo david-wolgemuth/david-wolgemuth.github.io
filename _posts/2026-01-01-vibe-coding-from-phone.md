@@ -5,13 +5,17 @@ date: 2026-01-01
 tags: mobile-development ci-cd ai-assisted-coding infrastructure github-actions testing
 ---
 
-*This post was dictated by me and polished by AI. And yes, Claude made the PR to add it to my blog repo*
+*This post was dictated by me and polished by AI. [And yes, I vibe coded from my phone to add this post to my blog repo](https://github.com/david-wolgemuth/david-wolgemuth.github.io/pull/5)*
+
+**Dragon Quest Solitaire:**
+- [Play the game](https://david-wolgemuth.github.io/dragon-quest-solitaire/)
+- [View the repo](https://github.com/david-wolgemuth/dragon-quest-solitaire)
 
 ---
 
 ## Background
 
-Over Christmas break, I got hooked on [Dragon Sweeper](https://dragon-sweeper.com/)—a simple browser game that reminded me of a solitaire dungeon crawler I'd started building two years ago in vanilla JavaScript. I'd lost steam on it back then, but with current AI coding tools, it seemed like a good time to pick it back up.
+Over Christmas break, I got hooked on [dragonsweeper](https://danielben.itch.io/dragonsweeper/)—a simple browser game that reminded me of a solitaire dungeon crawler I'd started building two years ago in vanilla JavaScript. I'd lost steam on it back then, but with current AI coding tools, it seemed like a good time to pick it back up.
 
 The catch: I was on vacation. Long car rides, not my turn to drive, didn't want to open my laptop. So I decided to vibe code the whole thing from my phone using the Claude app.
 
@@ -127,4 +131,4 @@ The infrastructure took maybe a day spread across the road trip. Everything afte
 
 ---
 
-*Dragon Quest Solitaire is still in progress. [Dragon Sweeper](https://dragon-sweeper.com/) is what got me back into it.*
+*Dragon Quest Solitaire is still in progress. [dragonsweeper](https://danielben.itch.io/dragonsweeper/) is what got me back into it.*
