@@ -31,7 +31,11 @@ Over Christmas break, I got hooked on [dragonsweeper](https://danielben.itch.io/
 
 It is a solitaire dungeon crawler card-game I started building two years ago in vanilla JavaScript, but lost steam on.  With current AI coding tools, I thought maybe I could kickstart development again.
 
-The catch: I was on vacation and did NOT want to open my laptop. So I decided to vibe code the whole thing from my phone using the Claude app.  All of what you are about to see was developed 100% from my phone, in the passenger seat of a car and while lounging on a couch watching christmas movies.
+The catch: I was on vacation and did NOT want to open my laptop.
+
+I happened upon a [fun blog post from Simon Willison](https://simonwillison.net/2025/Dec/15/porting-justhtml/) where he talks about how he uses Claude Code from his phone, and was curious if I could do the same.
+
+All of what you are about to see was developed 100% from my phone. Mostly while in the passenger seat of a car or while lounging on a couch watching christmas movies.
 
 <figure>
 <img alt="Tutorial feature in the game" src="/assets/images/tutorial-feature.jpg" />
