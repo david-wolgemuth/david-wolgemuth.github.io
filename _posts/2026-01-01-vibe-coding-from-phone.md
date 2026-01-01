@@ -25,7 +25,24 @@ Vibe coding on mobile means you can't run anything locally. No dev server, no te
 
 This was also a two-year-old codebase with real complexity—game rules, card interactions, state management. I didn't want the AI to just rewrite everything. I wanted to maintain the feel of the app and ensure the game rules stayed intact.
 
+<figure>
+<img width="1080" height="2400" alt="Mobile debugging screenshot showing JavaScript errors" src="https://github.com/user-attachments/assets/acef78a0-ea4b-41f2-b2a6-22cd8906df10" />
+<figcaption>Mobile isn't the best for debugging. JavaScript errors on the front end. Had to set up some things to help me.</figcaption>
+</figure>
+
 **Before I could vibe code features, I needed to vibe code infrastructure.**
+
+But first, I needed debugging tools. On mobile, you can't just open DevTools. I built two solutions:
+
+<figure>
+<img width="1080" height="2400" alt="Custom debug log interface" src="https://github.com/user-attachments/assets/9c798099-9158-4b81-9b86-90df62657350" />
+<figcaption>First started with a custom debug log.</figcaption>
+</figure>
+
+<figure>
+<img width="1080" height="2400" alt="Eruda development tool interface on mobile" src="https://github.com/user-attachments/assets/6c41721e-1144-4083-94ef-aeda2ebebea6" />
+<figcaption>There's a tool here which I found for displaying a full development debug tool set on mobile called <a href="https://eruda.liriliri.io/">eruda</a></figcaption>
+</figure>
 
 ## The Goal
 
@@ -66,6 +83,11 @@ Result in the PR comment:
 
 Tap a link, game loads in that exact state, QA on my phone.
 
+<figure>
+<img width="1080" height="2400" alt="GitHub PR comment showing QA links" src="https://github.com/user-attachments/assets/db34fd37-875c-4446-881e-e6bbdd5ee35f" />
+<figcaption>Custom QA environments within GitHub pages. And links of various game states generated from integration tests. So I can QA without having to do a bunch of work</figcaption>
+</figure>
+
 ### 3. Markdown-Based Todo System
 
 Instead of GitHub Issues or external tools, everything lives in the repo:
@@ -97,6 +119,11 @@ The `CONTRIBUTING.md` file is the AI's entry point. It defines:
 
 When I start a session: *"Look at the backlog, find a high priority item, work on it, mark it done in the PR."* The AI reads the contributing guide and knows exactly what to do.
 
+<figure>
+<img alt="Claude AI chat showing simple contribution workflow" src="https://github.com/user-attachments/assets/1a443525-df4c-411d-bafe-6ed699f6df39" />
+<figcaption>Final state of simply telling the AI to make a contribution. No thought prompt</figcaption>
+</figure>
+
 Out-of-scope items become new todos rather than scope creep.
 
 ## Why It Works
@@ -116,6 +143,11 @@ Over Christmas break, mostly from my phone:
 - Shipped actual features and bug fixes
 
 No laptop opened.
+
+<figure>
+<img width="1080" height="2400" alt="Tutorial feature in the game" src="https://github.com/user-attachments/assets/aed8cc7d-f9a1-4920-818b-3eb2c5b13810" />
+<figcaption>New tutorial feature added to game</figcaption>
+</figure>
 
 ## Takeaways
 
