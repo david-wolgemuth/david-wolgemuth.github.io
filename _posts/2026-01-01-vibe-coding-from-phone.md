@@ -120,23 +120,30 @@ Benefits:
 - AI can read the backlog and pick up tasks
 - No sync issues, no external dependencies
 
-## The Result: Phone-Only Development Works
-
 <figure>
 <img alt="Claude AI chat showing simple contribution workflow" src="/assets/images/claude-contribution.jpg" />
 <figcaption>Final state of simply telling the AI to make a contribution. No thought prompt</figcaption>
 </figure>
 
-The infrastructure keeps me in the loop without requiring a laptop. Every change is verifiable via PR preview links. I'm still making the call on whether code is correct—the AI assists with velocity, I maintain quality control.
+## Conclusion: Phone-Only Development is Possible
 
-Over Christmas break, entirely from my phone:
-- Built CI/CD preview system
-- Added URL state serialization
-- Created 14+ test fixtures with auto-generated QA links
-- Set up markdown todo system with 35+ task specs
-- Shipped actual features and bug fixes
+I will (hopefully) never need to vibe code from my phone again, BUT this experiment proved it's possible with the right infrastructure.
 
-No laptop opened.
+Essential requirements:
+
+1. Ability to QA changes
+
+- PR Environments
+- Auto-generated scenario links from tests
+
+2. Sanity in your backlog and contribution process
+
+- Markdown-based todo system
+- Clear contribution guide
+
+3. Mobile debugging tools
+
+- Custom or third-party mobile devtools
 
 ---
 
