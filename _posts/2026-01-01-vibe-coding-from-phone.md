@@ -5,7 +5,18 @@ date: 2026-01-01
 tags: mobile-development ci-cd ai-assisted-coding infrastructure github-actions testing
 ---
 
-*This post was dictated by me and polished by AI. [And yes, I vibe coded from my phone to add this post to my blog repo](https://github.com/david-wolgemuth/david-wolgemuth.github.io/pull/5)*
+## Table of Contents
+
+- [Background: Vacation Coding Without a Laptop](#background-vacation-coding-without-a-laptop)
+- [The Problem: No Local Dev Environment](#the-problem-no-local-dev-environment)
+- [The Goal: One-Click PR Verification](#the-goal-one-click-pr-verification)
+- [The Solution: Infrastructure Before Features](#the-solution-infrastructure-before-features)
+- [The Result: Phone-Only Development Works](#the-result-phone-only-development-works)
+- [Takeaways: Two Essential Requirements](#takeaways-two-essential-requirements)
+
+---
+
+_AI Disclaimer: This post was dictated by me and polished by AI. [And yes, I vibe coded from my phone to add this post to my blog repo](https://github.com/david-wolgemuth/david-wolgemuth.github.io/pull/5)_
 
 **Dragon Quest Solitaire:**
 - [Play the game](https://david-wolgemuth.github.io/dragon-quest-solitaire/)
@@ -13,57 +24,32 @@ tags: mobile-development ci-cd ai-assisted-coding infrastructure github-actions 
 
 ---
 
-## Background
+## Background: Vacation Coding Without a Laptop
 
-Over Christmas break, I got hooked on [dragonsweeper](https://danielben.itch.io/dragonsweeper/)—a simple browser game that reminded me of a solitaire dungeon crawler I'd started building two years ago in vanilla JavaScript. I'd lost steam on it back then, but with current AI coding tools, it seemed like a good time to pick it back up.
+Over Christmas break, I got hooked on [dragonsweeper](https://danielben.itch.io/dragonsweeper/)—a GREAT browser game that reminded me of a solitaire dungeon crawler card-game I'd started building two years ago in vanilla JavaScript. I'd lost steam on it back then, but with current AI coding tools, it seemed like a good time to pick it back up.
 
 The catch: I was on vacation. Long car rides, not my turn to drive, didn't want to open my laptop. So I decided to vibe code the whole thing from my phone using the Claude app.
 
-## The Problem
+
+<figure>
+<img alt="Tutorial feature in the game" src="/assets/images/tutorial-feature.jpg" />
+<figcaption>New tutorial feature added to my game</figcaption>
+</figure>
+
+
+## The Problem: No Local Dev Environment
 
 Vibe coding on mobile means you can't run anything locally. No dev server, no test suite, no browser pointed at localhost. You're writing code blind.
 
 This was also a two-year-old codebase with real complexity—game rules, card interactions, state management. I didn't want the AI to just rewrite everything. I wanted to maintain the feel of the app and ensure the game rules stayed intact.
 
-<figure>
-<img width="1080" height="2400" alt="Mobile debugging screenshot showing JavaScript errors" src="https://github.com/user-attachments/assets/acef78a0-ea4b-41f2-b2a6-22cd8906df10" />
-<figcaption>Mobile isn't the best for debugging. JavaScript errors on the front end. Had to set up some things to help me.</figcaption>
-</figure>
-
-**Before I could vibe code features, I needed to vibe code infrastructure.**
-
-But first, I needed debugging tools. On mobile, you can't just open DevTools. I built two solutions:
-
-<figure>
-<img width="1080" height="2400" alt="Custom debug log interface" src="https://github.com/user-attachments/assets/9c798099-9158-4b81-9b86-90df62657350" />
-<figcaption>First started with a custom debug log.</figcaption>
-</figure>
-
-<figure>
-<img width="1080" height="2400" alt="Eruda development tool interface on mobile" src="https://github.com/user-attachments/assets/6c41721e-1144-4083-94ef-aeda2ebebea6" />
-<figcaption>There's a tool here which I found for displaying a full development debug tool set on mobile called <a href="https://eruda.liriliri.io/">eruda</a></figcaption>
-</figure>
-
-## The Goal
-
-Every PR should give me a clickable link that loads the game in a testable state, directly on my phone.
-
-No local environment. No terminal. Open PR → click link → verify it works.
-
-## The Solution
+## The Solution: Infrastructure Before Features
 
 Three pieces:
 
-### 1. URL State Serialization
+### 1. PR Preview Deployments + Auto-Generated QA Links
 
-Full game state encoded in the URL as base64:
-- Health, gems, inventory
-- Dungeon grid (card positions, face-up/down)
-- Fate deck state
-
-Any scenario becomes a shareable, bookmarkable link. Found a bug? Copy the URL.
-
-### 2. PR Preview Deployments + Auto-Generated QA Links
+**URL State Serialization**: Full game state encoded in the URL as base64 (health, gems, inventory, dungeon grid, fate deck state). Any scenario becomes a shareable, bookmarkable link.
 
 GitHub Actions workflow that:
 - Deploys each PR to GitHub Pages (`/pr-preview/pr-16/`)
@@ -72,23 +58,46 @@ GitHub Actions workflow that:
 - Posts a comment on the PR with clickable links to each scenario
 
 Result in the PR comment:
-```
+
+```markdown
 🚀 Preview deployed!
 
-🎮 Base Game - Fresh start
-🌱 Early game scenario
-⚔️ Dragon Queen battle
-✅ Gem damage reduction test
+🎮 [Base Game](.../pr-4/?state=abc)
+🌱 [Early game scenario](.../pr-4/?state=def)
+⚔️ [Dragon Queen battle](.../pr-4/?state=ghi)
+✅ [Gem damage reduction test](.../pr-4/?state=jkl)
 ```
 
 Tap a link, game loads in that exact state, QA on my phone.
 
 <figure>
-<img width="1080" height="2400" alt="GitHub PR comment showing QA links" src="https://github.com/user-attachments/assets/db34fd37-875c-4446-881e-e6bbdd5ee35f" />
+<img alt="GitHub PR comment showing QA links" src="/assets/images/pr-qa-links.jpg" />
 <figcaption>Custom QA environments within GitHub pages. And links of various game states generated from integration tests. So I can QA without having to do a bunch of work</figcaption>
 </figure>
 
-### 3. Markdown-Based Todo System
+### 2. Mobile Debugging Infrastructure
+
+On mobile, you can't just open DevTools. I built two solutions:
+
+1. custom debug log that appends messages to a hidden div on the page
+2. integrated [eruda](https://eruda.liriliri.io/)—a mobile-friendly devtools library that gives console, network, elements, etc.
+
+<figure>
+<img alt="Mobile debugging screenshot showing JavaScript errors" src="/assets/images/mobile-debugging.jpg" />
+<figcaption>Mobile isn't the best for debugging. JavaScript errors on the front end. Had to set up some things to help me.</figcaption>
+</figure>
+
+<figure>
+<img alt="Custom debug log interface" src="/assets/images/debug-log.jpg" />
+<figcaption>First started with a custom debug log.</figcaption>
+</figure>
+
+<figure>
+<img alt="Eruda development tool interface on mobile" src="/assets/images/eruda-debug.jpg" />
+<figcaption>There's a tool here which I found for displaying a full development debug tool set on mobile called <a href="https://eruda.liriliri.io/">eruda</a></figcaption>
+</figure>
+
+### 3. Markdown-Based Todo System & Contribution Guide
 
 Instead of GitHub Issues or external tools, everything lives in the repo:
 
@@ -103,37 +112,22 @@ Instead of GitHub Issues or external tools, everything lives in the repo:
 - [x] [#AAJ](AAJ-young-dragon.md) | Young Dragon gems - Fixed in PR #10
 ```
 
+The `CONTRIBUTING.md` file defines how to structure PRs, the test-first workflow, fixture creation, and todo updates. When I start a session: *"Look at the backlog, find a high priority item, work on it, mark it done in the PR."* The AI reads the contributing guide and knows exactly what to do.
+
 Benefits:
 - Documentation stays with code
 - PRs update the todo list in the same commit
 - AI can read the backlog and pick up tasks
 - No sync issues, no external dependencies
 
-## Tying It Together
-
-The `CONTRIBUTING.md` file is the AI's entry point. It defines:
-- How to structure a PR
-- Test-first workflow
-- Fixture creation for QA scenarios
-- Updating todos when done
-
-When I start a session: *"Look at the backlog, find a high priority item, work on it, mark it done in the PR."* The AI reads the contributing guide and knows exactly what to do.
+## The Result: Phone-Only Development Works
 
 <figure>
-<img alt="Claude AI chat showing simple contribution workflow" src="https://github.com/user-attachments/assets/1a443525-df4c-411d-bafe-6ed699f6df39" />
+<img alt="Claude AI chat showing simple contribution workflow" src="/assets/images/claude-contribution.jpg" />
 <figcaption>Final state of simply telling the AI to make a contribution. No thought prompt</figcaption>
 </figure>
 
-Out-of-scope items become new todos rather than scope creep.
-
-## Why It Works
-
-The infrastructure keeps me in the loop without requiring a laptop:
-- Every change is verifiable via PR preview links
-- I'm still making the call on whether code is correct
-- The AI assists with velocity, I maintain quality control
-
-## Outcome
+The infrastructure keeps me in the loop without requiring a laptop. Every change is verifiable via PR preview links. I'm still making the call on whether code is correct—the AI assists with velocity, I maintain quality control.
 
 Over Christmas break, entirely from my phone:
 - Built CI/CD preview system
@@ -143,23 +137,6 @@ Over Christmas break, entirely from my phone:
 - Shipped actual features and bug fixes
 
 No laptop opened.
-
-<figure>
-<img width="1080" height="2400" alt="Tutorial feature in the game" src="https://github.com/user-attachments/assets/aed8cc7d-f9a1-4920-818b-3eb2c5b13810" />
-<figcaption>New tutorial feature added to game</figcaption>
-</figure>
-
-## Takeaways
-
-For mobile vibe coding on a project you care about:
-
-1. **URL state serialization** — Shareable links that reproduce exact scenarios
-2. **Automated PR previews** — GitHub Pages + Actions, live deployment per PR
-3. **In-repo task management** — Markdown todos the AI can read and update
-4. **Test fixtures as QA scenarios** — Integration tests generate the states you need to verify
-5. **Document how to contribute** — `CONTRIBUTING.md` gives the AI context on your workflow
-
-The infrastructure took maybe a day spread across the road trip. Everything after that was just working on my game from my phone.
 
 ---
 
