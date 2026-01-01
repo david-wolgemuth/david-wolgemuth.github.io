@@ -103,7 +103,7 @@ On mobile, you can't just open DevTools. I built two solutions:
 
 ### 3. Markdown-Based Todo System & Contribution Guide
 
-Instead of GitHub Issues or external tools, everything lives in the repo:
+I didn't want to have the AI make gigantic PRs rewriting everything. I wanted small, test-driven contributions that didn't break existing functionality.  I had already had a small backlog of features and bugs in markdown files in the repo, so I formalized that into a simple todo system that the AI could read and follow.
 
 - `todos/README.md` — master list with priority, t-shirt size, status
 - `todos/AAJ-young-dragon.md` — individual task specs with acceptance criteria
