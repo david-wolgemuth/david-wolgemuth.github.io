@@ -28,7 +28,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] You are the integration layer `systems-thinking` `startup` `coordination`
 
 ### Healthcare
-- [ ] Why healthcare contracts are hard to reason about `healthcare` `systems-thinking`
+- [c] Why healthcare contracts are hard to reason about `healthcare` `systems-thinking`
 - [ ] How abstractions leak in healthcare billing `healthcare` `architecture`
 - [ ] Healthcare from the patient's perspective - a systems view `healthcare` `systems-thinking`
 - [ ] Cascading context in document hierarchies `healthcare` `architecture`
