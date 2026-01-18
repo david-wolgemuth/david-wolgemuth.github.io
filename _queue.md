@@ -8,7 +8,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] The Observer Pattern is usually overkill - when it isn't `design-patterns` `python`
 - [ ] Context managers are Python's best-kept secret `design-patterns` `python`
 - [ ] Dependency injection without a framework `design-patterns` `python`
-- [ ] The Repository pattern in a 50-person startup `design-patterns` `startup`
+- [c] The Repository pattern in a 50-person startup `design-patterns` `startup`
 - [ ] When NOT to use the Singleton `design-patterns` `python`
 - [ ] Processes vs. entities - when things shouldn't be objects `design-patterns` `python`
 - [ ] CSS-like cascading for configuration inheritance `design-patterns` `architecture`
