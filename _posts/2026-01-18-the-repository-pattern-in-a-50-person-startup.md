@@ -1,37 +1,35 @@
 ---
 layout: post
-title: "The Repository pattern in a 50-person startup"
+title: "When the Repository Pattern Starts to Help"
 date: 2026-01-18
-tags: [design-patterns, startup, python]
-excerpt: "Most startups don't need a Repository pattern. Here's when that changes."
+tags: [design-patterns, python, architecture]
+excerpt: "The Repository pattern solves a specific problem at a specific scale. Here's what that problem looks like and when the pattern pays off."
 ---
 
-## The Messy Reality
+## The Failure Mode
 
-Last week I spent an hour debugging a test that was failing because it was hitting the production database. Not a staging database. Production.
+A common failure mode in growing codebases: tests that depend on production infrastructure when they don't need to.
 
-The test file had `from myapp.models import User` at the top, which pulled in Django's ORM, which had been configured with production credentials in a poorly-managed settings file. The test passed locally (pointing at local Postgres) and exploded in CI (which, for reasons I still don't fully understand, had production credentials baked in).
+Consider a test for business logic—calculating a user's subscription tier based on usage. The function signature is `def calculate_tier(user: User)`, where `User` is a Django model. Django models carry their database connections implicitly. The test can't run without a real database, even though it's only testing arithmetic.
 
-This isn't a story about credential management. It's a story about coupling.
+This isn't primarily a credential management problem. It's a coupling problem.
 
-The test didn't need a database at all. It was testing business logic—"does this function correctly calculate a user's subscription tier based on their usage?" But because the function signature was `def calculate_tier(user: User)`, and `User` was a Django model, and Django models carry their database connections like luggage, the test couldn't run without a real database.
+## When This Surfaces
 
-## What's Actually Happening
+In very small teams, this coupling cost is often acceptable. The system boundaries are implicitly understood, there's one database, one environment, one way of doing things. Fewer abstractions means less maintenance.
 
-In a 10-person startup, this doesn't matter. You have one database, one environment, one way of doing things. The coupling between your business logic and your data layer is a feature, not a bug—it means fewer abstractions to maintain.
+As teams grow—often somewhere around 40-60 engineers—the implicit understanding breaks down:
 
-But somewhere around 50 people, things shift. You get:
+- Multiple services need to share data concepts but not database connections
+- Test suites slow down because every test touches the database
+- Someone needs a different datastore for a specific use case
+- Compliance requirements mean certain queries need auditing
 
-- Multiple services that need to share data concepts but not database connections
-- A growing test suite that takes 20 minutes because every test touches the database
-- An engineer who wants to swap Postgres for a different datastore for one use case
-- A compliance requirement that means certain queries need to be audited
-
-Suddenly, the tight coupling between "what a User is" and "how a User is stored" becomes friction.
+The tight coupling between "what a User is" and "how a User is stored" becomes friction.
 
 ## The Pattern
 
-The Repository pattern is just this: separate the "what" from the "where."
+The Repository pattern separates the domain representation from the storage mechanism.
 
 ```python
 # Before: Business logic coupled to Django ORM
@@ -52,7 +50,7 @@ def calculate_tier(user: UserData) -> str:
     return "standard"
 ```
 
-The Repository is what bridges the gap:
+The Repository bridges the gap:
 
 ```python
 class UserRepository:
@@ -64,7 +62,7 @@ class UserRepository:
         )
 ```
 
-Now my test can do:
+Tests become simpler:
 
 ```python
 def test_enterprise_tier():
@@ -72,37 +70,39 @@ def test_enterprise_tier():
     assert calculate_tier(user) == "enterprise"
 ```
 
-No database. No credentials. No Django. Just data and logic.
+No database. No credentials. No ORM. Just data and logic.
 
-## Why This Keeps Showing Up
+## Why This Tends to Emerge at Scale
 
-I've seen this pattern emerge independently at three different startups, always around the same company size. The reason is structural.
+The pattern is really about making explicit what used to be implicit.
 
-Small teams can hold the entire system in their heads. When there's one way to access data, and everyone knows it, the abstraction layer is human—it's the shared understanding among five engineers who all joined within six months of each other.
+Small teams can hold the entire system in their heads. When there's one way to access data and everyone knows it, the abstraction layer is human—shared understanding among engineers who all joined within a few months of each other.
 
-At 50 people, that breaks down. New engineers don't have the context. Teams form around different parts of the system. The person writing the billing logic and the person managing the database schema stop being in every standup together.
+At scale, that breaks down. New engineers lack context. Teams form around different parts of the system. The person writing billing logic and the person managing the database schema stop attending the same standups.
 
-The Repository pattern is really about creating an explicit boundary that used to be implicit. It's organizational design reflected in code.
+The Repository pattern is organizational design reflected in code.
 
-## What Helps
+## What Tends to Help
 
-If you're feeling the pain of tight coupling but don't want to over-architect:
+**Start with tests.** The first place this pattern pays off is testing. An `InMemoryUserRepository` that holds a dict instead of hitting the database makes test suites faster and more reliable. Converting the whole codebase isn't necessary—just the hot paths.
 
-**Start with tests.** The first place the Repository pattern pays off is testing. If you can write `InMemoryUserRepository` that holds a dict instead of hitting the database, your test suite gets faster and more reliable. You don't need to convert your whole codebase—just the hot paths.
+**Use dataclasses at the boundary.** The moment a Django model or SQLAlchemy object passes into business logic, the coupling exists. Dataclasses or TypedDicts create a seam where implementations can be swapped.
 
-**Use dataclasses, not ORMs, at the boundary.** The moment you pass a Django model or SQLAlchemy object into business logic, you're coupled. Dataclasses or TypedDicts create a seam where you can swap implementations.
+**Avoid premature abstraction.** Building pluggable adapters for Postgres, MySQL, MongoDB, and DynamoDB when only Postgres is in use creates more complexity than it solves.
 
-**Don't build for portability you don't need.** I've seen teams implement the Repository pattern with pluggable adapters for Postgres, MySQL, MongoDB, and DynamoDB when they only used Postgres and had no plans to change. The abstraction became more complex than the thing it abstracted.
+**Consider read/write asymmetry.** Most applications read far more than they write. Sometimes a Repository for writes (where transaction boundaries and consistency matter) combined with direct database reads (where performance and flexibility matter) is the right tradeoff.
 
-**Consider the read/write asymmetry.** Most apps read far more than they write. Sometimes it makes sense to have a Repository for writes (where you need transaction boundaries and consistency) but let reads go directly to the database (where you need performance and flexibility).
+## Tradeoffs
 
-## What I'm Still Unsure About
+The pattern creates real cost: two representations of every entity—the domain object and the database model. In a fast-moving codebase, keeping these in sync adds friction. Every schema change means updating both layers.
 
-The pattern creates a real cost: you now have two representations of every entity—the domain object and the database model. In a fast-moving startup, keeping these in sync is friction. Every schema change means updating both layers.
+There's also ambiguity around how much logic belongs in the Repository. Some implementations end up with methods like `get_users_who_should_receive_weekly_email()`, which pushes business logic into the data layer. Others keep Repositories thin but require complex orchestration code with multiple Repository calls. Neither approach is obviously correct.
 
-There's also a gray zone around "how much logic belongs in the Repository?" Some teams end up with Repositories that have methods like `get_users_who_should_receive_weekly_email()`, which pushes business logic into the data layer. Others keep Repositories thin but then have complex orchestration code that makes multiple Repository calls. Neither feels quite right.
+## Open Questions
 
-The honest answer is that the Repository pattern is a tool for a specific moment in a company's growth. Too early and it's overhead. Too late and you're untangling years of coupled code. The skill is recognizing when you're in the window where it helps.
+The Repository pattern is a tool for a specific moment in a codebase's evolution. Applied too early, it's overhead. Applied too late, it means untangling years of coupled code.
+
+The skill is recognizing when you're in the window where it helps—and that recognition often only comes from feeling the friction first.
 
 ---
 
