@@ -48,7 +48,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 ### Meta / Personal
 - [ ] Coworking with AI - lessons from daily-driving cursor+claude `trends` `startup`
 - [ ] Vim bindings that actually matter - the 20% that give 80% `trends`
-- [ ] ChatGPT vs. Claude - when to use which `trends`
+- [c] ChatGPT vs. Claude - when to use which `trends`
 - [ ] Reflection over automation `trends` `startup`
 - [ ] Building something that outlasts your current job `trends` `startup`
 
