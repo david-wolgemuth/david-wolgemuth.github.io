@@ -46,7 +46,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] Using git as a state journal `architecture` `python`
 
 ### Meta / Personal
-- [ ] Coworking with AI - lessons from daily-driving cursor+claude `trends` `startup`
+- [c] Coworking with AI - lessons from daily-driving cursor+claude `trends` `startup`
 - [ ] Vim bindings that actually matter - the 20% that give 80% `trends`
 - [ ] ChatGPT vs. Claude - when to use which `trends`
 - [ ] Reflection over automation `trends` `startup`
