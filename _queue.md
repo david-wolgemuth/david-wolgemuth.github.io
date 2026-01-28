@@ -24,7 +24,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] What your dashboards don't tell you `systems-thinking` `observability`
 - [ ] Your most reliable system is the person with tribal knowledge `systems-thinking` `startup`
 - [ ] The 80% problem - why work gets stuck near done `systems-thinking` `startup`
-- [ ] Simple rules, emergent mess - how small policies compound `systems-thinking` `incentives`
+- [c] Simple rules, emergent mess - how small policies compound `systems-thinking` `incentives`
 - [ ] You are the integration layer `systems-thinking` `startup` `coordination`
 
 ### Healthcare
