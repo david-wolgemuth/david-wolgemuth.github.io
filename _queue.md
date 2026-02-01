@@ -43,7 +43,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] Trigger-based vs. view-based accumulation `architecture` `healthcare`
 - [ ] Personal infrastructure that follows you `architecture` `startup`
 - [ ] AI as interpreter, not just actor `architecture` `trends`
-- [ ] Using git as a state journal `architecture` `python`
+- [c] Using git as a state journal `architecture` `python`
 
 ### Meta / Personal
 - [ ] Coworking with AI - lessons from daily-driving cursor+claude `trends` `startup`
