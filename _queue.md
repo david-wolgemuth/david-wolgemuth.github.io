@@ -9,7 +9,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] Context managers are Python's best-kept secret `design-patterns` `python`
 - [ ] Dependency injection without a framework `design-patterns` `python`
 - [c] The Repository pattern in a 50-person startup `design-patterns` `startup`
-- [ ] When NOT to use the Singleton `design-patterns` `python`
+- [c] When NOT to use the Singleton `design-patterns` `python`
 - [ ] Processes vs. entities - when things shouldn't be objects `design-patterns` `python`
 - [ ] CSS-like cascading for configuration inheritance `design-patterns` `architecture`
 - [ ] Transitional state - when environment becomes entity `design-patterns` `python`
