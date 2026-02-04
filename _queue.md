@@ -18,7 +18,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] Your startup is perfectly tuned to produce fire drills `systems-thinking` `incentives` `startup`
 - [ ] Coordination cost scales faster than headcount `systems-thinking` `coordination` `startup`
 - [ ] When 'temporary' becomes permanent - complexity in startups `systems-thinking` `complexity` `technical-debt`
-- [ ] Growth is a feedback loop, not a reward `systems-thinking` `feedback-loops` `startup`
+- [c] Growth is a feedback loop, not a reward `systems-thinking` `feedback-loops` `startup`
 - [ ] Startups centralize by necessity, decentralize by pain `systems-thinking` `architecture`
 - [ ] Technical debt isn't a mistake - it's a loan with interest you don't control `systems-thinking` `technical-debt`
 - [ ] What your dashboards don't tell you `systems-thinking` `observability`
