@@ -5,10 +5,12 @@ date: 2026-02-05
 tags: [ai, consciousness, sci-fi, philosophy-of-mind]
 ---
 
-
 You know it.
+
 The robot is sad.
+
 The robot wants rights.
+
 The robot is basically a human, but chrome.
 
 We've been telling this story for over a hundred years.
