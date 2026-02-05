@@ -40,7 +40,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] The spec-driven development pattern - design docs as contracts `architecture` `startup`
 - [ ] Why polling agents beat event-driven for personal productivity `architecture` `python`
 - [ ] Aggregate state vs. individual entities - knowing when identity matters `architecture` `design-patterns`
-- [ ] Trigger-based vs. view-based accumulation `architecture` `healthcare`
+- [c] Trigger-based vs. view-based accumulation `architecture` `healthcare`
 - [ ] Personal infrastructure that follows you `architecture` `startup`
 - [ ] AI as interpreter, not just actor `architecture` `trends`
 - [ ] Using git as a state journal `architecture` `python`
