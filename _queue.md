@@ -12,7 +12,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [ ] When NOT to use the Singleton `design-patterns` `python`
 - [ ] Processes vs. entities - when things shouldn't be objects `design-patterns` `python`
 - [ ] CSS-like cascading for configuration inheritance `design-patterns` `architecture`
-- [ ] Transitional state - when environment becomes entity `design-patterns` `python`
+- [c] Transitional state - when environment becomes entity `design-patterns` `python`
 
 ### Systems Thinking
 - [ ] Your startup is perfectly tuned to produce fire drills `systems-thinking` `incentives` `startup`
