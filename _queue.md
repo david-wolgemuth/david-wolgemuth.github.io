@@ -21,7 +21,7 @@ Ideas for blog posts. When drafted, move to "In Progress". When merged, move to 
 - [c] Growth is a feedback loop, not a reward `systems-thinking` `feedback-loops` `startup`
 - [ ] Startups centralize by necessity, decentralize by pain `systems-thinking` `architecture`
 - [ ] Technical debt isn't a mistake - it's a loan with interest you don't control `systems-thinking` `technical-debt`
-- [ ] What your dashboards don't tell you `systems-thinking` `observability`
+- [c] What your dashboards don't tell you `systems-thinking` `observability`
 - [ ] Your most reliable system is the person with tribal knowledge `systems-thinking` `startup`
 - [ ] The 80% problem - why work gets stuck near done `systems-thinking` `startup`
 - [ ] Simple rules, emergent mess - how small policies compound `systems-thinking` `incentives`
