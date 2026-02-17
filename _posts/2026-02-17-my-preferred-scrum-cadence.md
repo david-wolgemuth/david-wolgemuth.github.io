@@ -8,7 +8,7 @@ excerpt: "A template for meeting structure I've pushed for on several teams — 
 
 I've pushed a version of this template on a few different teams. It's not doctrine — it should be tailored to the team's size, velocity, and maturity. But the core ideas have held up: every meeting needs an owner, every meeting produces an artifact, and async is a first-class citizen, not an afterthought.
 
-<blockquote>
+<blockquote markdown="1">
 
 # [Team Name] Planning & Meeting Structure
 
