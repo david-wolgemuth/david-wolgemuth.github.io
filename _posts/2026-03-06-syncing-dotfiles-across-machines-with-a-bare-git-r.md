@@ -1,81 +1,80 @@
 ---
 layout: post
-title: "Syncing dotfiles across machines with a bare git repo"
+title: "The Alias You Didn't Know Was a CLI"
 date: 2026-03-06
-tags: [tools, git, workflow]
-excerpt: "A bare git repo lets you version your home directory config without the chaos of a .git/ folder in ~."
+tags: [design-patterns, tools, complexity]
+excerpt: "Most dotfile managers are wrappers around git with different flags. The interesting question is how many other dependencies follow the same pattern."
 ---
 
-The problem with version-controlling dotfiles is structural: `git clone` puts a `.git/` folder inside the cloned directory. If you clone into `~`, git treats everything in your home directory as part of the repo. That's not what you want.
+## The Pattern
 
-The workaround is a bare clone — just the git database, no working directory mixed in.
+A surprising number of developer tools are thin wrappers around existing commands with different default arguments. The wrapper adds a name, a README, maybe a config format — but the underlying operation is often one flag away from something already installed.
 
-## How it works
+The default posture is to reach for `brew install`. Sometimes the answer was `alias` the whole time.
 
-A bare clone contains what would normally live in `.git/` (objects, refs, config), but nothing else. You store it at `~/.dotfiles` and tell git that `~` is the working tree:
+## Example: Dotfiles
 
-```
-~/.dotfiles/  <- git's database
-~/            <- the working tree (where your .zshrc etc. actually live)
-```
+The standard problem with version-controlling dotfiles: `git clone` puts `.git/` inside the target directory. Clone into `~` and git claims your entire home directory. Tools like chezmoi, yadm, and GNU Stow exist to solve this.
 
-The `dotfiles` alias wires this together:
+A bare git repo solves it in six words:
 
 ```bash
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 ```
 
-Because there's no `.git/` in `~`, normal `git` commands don't accidentally pick up home directory files. Regular git still works normally inside actual repos like `~/workshed/`. You use `dotfiles` instead of `git` for anything touching your home directory config.
-
-One more setting worth adding: `showUntrackedFiles no`. Without it, `dotfiles status` lists every file in `~` that you haven't explicitly tracked — which is everything.
-
-## New machine setup
+That's the whole tool. `--git-dir` tells git where to keep its database. `--work-tree` tells it where the actual files live. Because there's no `.git/` in `~`, regular `git` commands inside `~/my-project/` work normally. You use `dotfiles` for home directory config.
 
 ```bash
-# 1. Clone the git database (no working files yet)
-git clone --bare git@github.com:your-user/home.git ~/.dotfiles
-
-# 2. Create the alias (just for this session — .zshrc will restore it after checkout)
-alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
-# 3. Pull tracked files into ~
-dotfiles checkout
-
-# If existing files conflict, back them up first:
-#   dotfiles checkout 2>&1 | grep -E "^\s+" | xargs -I{} mv {} {}.bak
-#   dotfiles checkout
-# Or force overwrite:
-#   dotfiles checkout -f
-
-# 4. Suppress untracked file noise
-dotfiles config status.showUntrackedFiles no
-
-# 5. (Optional) Disable GPG signing if you haven't imported your key yet
-dotfiles config commit.gpgsign false
-```
-
-After checkout, `.zshrc` provides the `dotfiles` alias permanently.
-
-## Day-to-day usage
-
-```bash
-dotfiles status                       # what's changed
-dotfiles diff                         # see actual changes
-dotfiles add ~/.some-config           # stage a file
-dotfiles commit -m "add some-config"  # commit
-dotfiles push                         # sync to github
-```
-
-## Tracking a new file
-
-```bash
-dotfiles add ~/.new-config
-dotfiles commit -m "track new-config"
+dotfiles add ~/.zshrc
+dotfiles commit -m "update zshrc"
 dotfiles push
 ```
 
-## Notes
+New machine setup is a bare clone, one checkout, done. The README for this "tool" is essentially the alias itself — which is also, coincidentally, the entire source code.
 
-- Only files you explicitly `dotfiles add` are tracked. Everything else in `~` is ignored.
-- The bare repo at `~/.dotfiles` never creates a `.git/` in `~`.
-- Any git subcommand works: `dotfiles log`, `dotfiles diff HEAD~1`, `dotfiles stash`, etc.
+Compare that to chezmoi's documentation. The ratio of docs-to-capability tells you something about how much abstraction you're carrying.
+
+## What the Wrapper Buys You (Sometimes)
+
+This isn't an argument that wrappers are always wrong. Chezmoi handles templating — machine-specific config variants, secrets injection, one-command apply across divergent hosts. If you manage 30 machines with different OS-level quirks, the abstraction pays for itself.
+
+But most developers manage one to three machines with nearly identical configs. For that case, the bare repo alias does everything needed. The dependency exists to solve a problem that often hasn't actually materialized.
+
+```
+┌────────────────────────────┬──────────────────────┬─────────────┐
+│ Approach                   │ Handles              │ Costs       │
+├────────────────────────────┼──────────────────────┼─────────────┤
+│ alias + bare repo          │ versioning, sync     │ one alias   │
+│ chezmoi                    │ + templating, secrets│ new CLI,    │
+│                            │   multi-OS variants  │ config fmt, │
+│                            │                      │ mental model│
+│ stow                       │ + explicit symlinks  │ directory   │
+│                            │                      │ conventions │
+└────────────────────────────┴──────────────────────┴─────────────┘
+```
+
+## The Broader Question
+
+Dotfiles are the clean example. The murkier one: how many other tools in a typical dev environment follow the same shape?
+
+A few candidates that tend to surface:
+
+- **Directory-scoped shells** — tools that set environment variables when you `cd` into a project. `direnv` does this well. But `cd() { builtin cd "$@" && [ -f .env ] && source .env; }` covers a surprising percentage of the use case. (It covers it worse, to be fair — no cleanup on exit. But it covers it.)
+
+- **Process runners** — Procfile managers, task runners, `make` wrappers. Many exist because `make` has confusing syntax, not because the problem is hard. The dependency solves an ergonomics gap, not a capability gap.
+
+- **Git workflow tools** — aliases around `git log --oneline --graph`, `git stash` patterns, branch naming conventions. Some of these accumulate into a tool (git-flow, lazygit). Whether the tool is worth it depends on whether you've outgrown what `[alias]` in `.gitconfig` can express.
+
+The pattern in each case: an existing tool handles the core operation. The wrapper adds defaults, guardrails, or a nicer interface. The question isn't "does the wrapper help" — often it does — but "could I articulate what I'm paying for?"
+
+## Where This Breaks Down
+
+Aliases stop scaling when the logic exceeds a single command invocation. Once you need conditionals, error handling, or state across calls, you've graduated from alias to script to tool. The boundary is blurry but real.
+
+The honest test: if you can't write the alias from memory on a fresh machine, it's not simple enough to stay an alias. And if you find yourself maintaining a shell function longer than ~15 lines, you've quietly built the tool you were trying to avoid — just without tests or documentation.
+
+(There's a certain recursive irony in version-controlling a shell function that manages your version-controlled shell functions.)
+
+---
+
+*This post was written with AI assistance.*
