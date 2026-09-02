@@ -6,6 +6,31 @@ tags: [linux, operations, timeline]
 excerpt: "A chronological command record for bootstrapping a minimal Debian server with no usable Ethernet path."
 ---
 
+<img width="400" alt="PXL_20260902_010505008" src="https://github.com/user-attachments/assets/332673d9-c0d4-435c-81a3-5d3e7ac0e4d2" />
+
+
+I bought a new "ThinkCentre" to use as a small homelab hobby server.
+I decided to try running a headless Debian server.  My go-to has been Ubuntu stable for this in the past, but I wanted to try a level lower, and maybe learn something new.
+
+My first goal was the initial "bootstrap", to control remotely via SSH.  As once I've got that, I'm off to the races.
+
+It's not every day I plug in a keyboard & monitor to a terminal-only machine.  So I was excited for that.
+Luckily, I ran into a MILLION problems, so I got to spend a lot of time in this phase.
+
+What most tripped me up:
+1. I didn't have an ethernet cable
+2. Debian doesn't ship w/ WIFI capability (or if it does, me+ai were too stupid to figure it out)
+
+I eventually downloaded a few bare-bones wifi packages onto a thumbdrive and used those to get connected, then _wiped_ those once I could use a more robust/modern solution 
+
+<img width="400" alt="PXL_20260902_013828453" src="https://github.com/user-attachments/assets/b5f95206-257b-4b03-9f3a-cef92e38adfe" />
+
+tada:
+
+<img width="942" height="277" alt="image" src="https://github.com/user-attachments/assets/7beb3795-6c28-488e-847b-0c2da76e3653" />
+
+B/c i had the full transcript w/ AI going through this, I was able to generate a nice detailed log:
+
 <blockquote class="ai-gen" markdown="1">
 
 **The following is AI Generated:** This technical timeline has been generalized from a private setup session. It omits credentials, network names, addresses, account names, device identifiers, and other configuration-specific details. Placeholders such as `<wifi-interface>` and `<server-address>` replace values used during the actual session.
